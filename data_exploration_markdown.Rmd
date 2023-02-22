@@ -1,11 +1,18 @@
 ---
-title: "piper insect data exploration"
-output: html_notebook
+title: "Data Exploration"
+author: "Piotr Szefer"
+date: "2/22/2023"
+output: pdf_document
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
+```
 
 
 ```{r}
+source('code/data_preparation.R')
+
 # Summary of sites and species numbers ----
 spNoSummary <- piperDataRaw %>% group_by(proj_code, locality, pl_identification) %>%
   summarise(sp.no = n())
